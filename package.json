@@ -12,7 +12,7 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
     "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx ./src --fix",
     "typescript": "tsc --noEmit",
-    "ci": "yarn lint && yarn typescript && yarn test --coverage"
+    "ci": "yarn lint && yarn typescript"
   },
   "dependencies": {
     "@react-native-community/geolocation": "^2.0.2",
@@ -28,7 +28,7 @@
     "react-native-reanimated": "^1.13.2",
     "react-native-responsive-screen": "^1.4.1",
     "react-native-safe-area-context": "^3.1.9",
-    "react-native-screens": "^2.15.0",
+    "react-native-screens": "^2.16.1",
     "react-native-svg": "^12.1.0",
     "react-native-vector-icons": "^7.1.0",
     "styled-components": "^5.2.1"
@@ -41,6 +41,7 @@
     "@types/react": "^17.0.0",
     "@types/react-native": "^0.63.37",
     "@types/react-test-renderer": "^17.0.0",
+    "@types/styled-components": "^5.1.7",
     "babel-jest": "^26.6.3",
     "eslint": "^7.14.0",
     "jest": "^26.6.3",
