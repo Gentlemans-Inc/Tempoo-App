@@ -1,7 +1,8 @@
 import React, {useRef, useState} from 'react';
+import theme from '../../styles/theme';
+import {useNavigation} from '@react-navigation/native';
 import {Keyboard} from 'react-native';
 import {Button, Input} from '../../components';
-import theme from '../../styles/theme';
 import {
   Container,
   DismissKeyboard,
@@ -12,6 +13,7 @@ import {
 } from './styles';
 
 const Login: React.FC = () => {
+  const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const refPassword = useRef();
@@ -25,6 +27,14 @@ const Login: React.FC = () => {
   };
 
   const onPressButton = () => {};
+
+  const onPressFooter = () => {
+    navigation.navigate('Register');
+  };
+
+  const onPressForgot = () => {
+    navigation.navigate('ForgotPassword');
+  };
 
   const onSubmitEmail = () => {
     refPassword.current.focus();
@@ -58,12 +68,12 @@ const Login: React.FC = () => {
           textContentType="password"
           value={password}
         />
-        <ForgotPassword>
+        <ForgotPassword onPress={onPressForgot}>
           <ForgotPasswordLabel>Forgot Password?</ForgotPasswordLabel>
         </ForgotPassword>
         <Button label="Sign In" onPress={onPressButton} />
 
-        <Footer>
+        <Footer onPress={onPressFooter}>
           <Message>
             Don't have an account yet?
             <ForgotPasswordLabel> Sign Up</ForgotPasswordLabel>
