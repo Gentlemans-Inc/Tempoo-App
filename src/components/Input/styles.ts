@@ -9,7 +9,7 @@ export const Container = styled.View`
   align-items: center;
   background-color: #fff;
   border-color: ${theme.colors.gray};
-  border-radius: 1000px;
+  border-radius: 8px;
   border-width: 0.1px;
   flex-direction: row;
   margin-bottom: ${hp(1.5)}px;
