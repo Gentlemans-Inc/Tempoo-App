@@ -5,7 +5,7 @@ import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 export const Container = styled.TouchableOpacity`
   align-items: center;
   background-color: ${theme.colors.nightPurple};
-  border-radius: 1000px;
+  border-radius: 8px;
   padding-bottom: ${hp(1)}px;
   padding-top: ${hp(1)}px;
   width: 85%;

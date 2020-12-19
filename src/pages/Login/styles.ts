@@ -2,19 +2,8 @@ import styled from 'styled-components/native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import theme from '../../styles/theme';
 
-export const Container = styled.SafeAreaView`
-  align-items: center;
-  background-color: #f1f1f1;
-  height: 100%;
-  justify-content: center;
-  width: 100%;
-`;
-
-export const DismissKeyboard = styled.TouchableWithoutFeedback``;
-
 export const Footer = styled.TouchableOpacity`
-  bottom: ${hp(2)}px;
-  position: absolute;
+  margin-top: ${hp(5)}px;
 `;
 
 export const ForgotPassword = styled.TouchableOpacity`
