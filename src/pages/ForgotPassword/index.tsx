@@ -13,7 +13,7 @@ const ForgotPassword: React.FC = () => {
   const onPressButton = () => {};
 
   return (
-    <ContainerAuth>
+    <ContainerAuth canGoBack={true}>
       <Message>
         Enter your e-mail and we'll send a link to recover your password
       </Message>

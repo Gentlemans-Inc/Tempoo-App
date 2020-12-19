@@ -1,6 +1,15 @@
 import styled from 'styled-components/native';
-import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
 import theme from '../../styles/theme';
+
+export const BackButton = styled.TouchableOpacity`
+  left: ${wp(2)}px;
+  position: absolute;
+  top: ${hp(2)}px;
+`;
 
 export const Background = styled.ImageBackground`
   height: 100%;
