@@ -1,6 +1,6 @@
 import * as styledComponents from 'styled-components/native';
 
-import ThemeInterface from './styled';
+import {Theme as ThemeInterface} from './styled';
 
 const {
   default: styled,
