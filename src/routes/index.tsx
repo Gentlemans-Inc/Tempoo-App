@@ -6,7 +6,7 @@ import {AuthStack} from './AuthStack';
 function Routes() {
   return (
     <NavigationContainer>
-      {true ? <AuthStack /> : <Drawer />}
+      {false ? <AuthStack /> : <Drawer />}
     </NavigationContainer>
   );
 }
