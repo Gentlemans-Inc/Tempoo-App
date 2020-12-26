@@ -3,7 +3,6 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
-import theme from '../../styles/theme';
 
 export const BackButton = styled.TouchableOpacity`
   left: ${wp(2)}px;
@@ -20,7 +19,7 @@ export const Card = styled.View`
   align-items: center;
   align-self: center;
   background-color: #fff;
-  border-color: ${theme.colors.mediumGray};
+  border-color: ${(props) => props.theme.colors.mediumGray};
   border-radius: 12px;
   border-width: 0.2px;
   padding-bottom: ${hp(2)}px;
@@ -37,7 +36,7 @@ export const Container = styled.SafeAreaView`
 export const DismissKeyboard = styled.TouchableWithoutFeedback``;
 
 export const Logo = styled.Text`
-  color: ${theme.colors.nightPurple};
+  color: ${(props) => props.theme.colors.nightPurple};
   font-family: 'Babydoo';
   font-size: ${hp(8)}px;
   margin-bottom: ${hp(5)}px;

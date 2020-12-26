@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import theme from '../../../../styles/theme';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -12,14 +11,14 @@ export const Container = styled.TouchableOpacity`
 `;
 
 export const City = styled.Text`
-  color: ${theme.colors.nightPurple};
+  color: ${(props) => props.theme.colors.nightPurple};
   font-size: ${hp(2.4)}px;
   font-weight: bold;
   text-align: right;
 `;
 
 export const State = styled.Text`
-  color: ${theme.colors.nightPurple};
+  color: ${(props) => props.theme.colors.nightPurple};
   font-size: ${hp(1.9)}px;
   text-align: right;
 `;

@@ -1,12 +1,11 @@
 import styled from 'styled-components/native';
-import theme from '../../styles/theme';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 
 export const Container = styled.View`
-  background-color: ${theme.colors.nightPurple};
+  background-color: ${(props) => props.theme.colors.nightPurple};
   height: 100%;
   width: 100%;
 `;
