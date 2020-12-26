@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import theme from '../../styles/theme';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -8,7 +7,7 @@ import {
 export const Container = styled.View`
   align-items: center;
   background-color: #fff;
-  border-color: ${theme.colors.gray};
+  border-color: ${(props) => props.theme.colors.gray};
   border-radius: 8px;
   border-width: 0.1px;
   flex-direction: row;
@@ -19,7 +18,7 @@ export const Container = styled.View`
 `;
 
 export const TextInput = styled.TextInput`
-  color: ${theme.colors.textDark};
+  color: ${(props) => props.theme.colors.textDark};
   margin-left: ${wp(1.5)}px;
   padding: ${hp(0.5)}px;
   width: 90%;

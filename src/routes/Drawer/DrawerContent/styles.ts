@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import theme from '../../../styles/theme';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -21,7 +20,7 @@ export const Footer = styled.View``;
 
 export const ImageContainer = styled.View`
   align-items: center;
-  background-color: ${theme.colors.lightGray};
+  background-color: ${(props) => props.theme.colors.lightGray};
   border-radius: 1000px;
   height: ${hp(4)}px;
   justify-content: center;
@@ -36,13 +35,13 @@ export const Line = styled.TouchableOpacity`
 `;
 
 export const NewCityLabel = styled.Text`
-  color: ${theme.colors.mediumGray};
+  color: ${(props) => props.theme.colors.mediumGray};
   font-size: ${hp(2)}px;
   font-weight: bold;
 `;
 
 export const PlusContainer = styled.View`
-  border-color: ${theme.colors.mediumGray};
+  border-color: ${(props) => props.theme.colors.mediumGray};
   border-radius: 1000px;
   border-width: 1px;
   border-style: dashed;
@@ -51,19 +50,19 @@ export const PlusContainer = styled.View`
 `;
 
 export const Settings = styled.Text`
-  color: ${theme.colors.gray};
+  color: ${(props) => props.theme.colors.gray};
   font-size: ${hp(2)}px;
   margin-right: ${wp(5)}px;
 `;
 
 export const SignOut = styled.Text`
-  color: ${theme.colors.error};
+  color: ${(props) => props.theme.colors.error};
   font-size: ${hp(2)}px;
   margin-right: ${wp(5)}px;
 `;
 
 export const User = styled.Text`
-  color: ${theme.colors.textDark};
+  color: ${(props) => props.theme.colors.textDark};
   font-size: ${hp(2.2)}px;
   margin-right: ${wp(5)}px;
   font-weight: bold;
