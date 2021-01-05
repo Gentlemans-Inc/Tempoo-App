@@ -2,7 +2,8 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "jsx": "react-native",
-    "lib": ["dom", "esnext"],
+    "lib": ["es2017"],
+    "module": "ESNext",
     "moduleResolution": "node",
     "noEmit": true,
     "esModuleInterop": true,
@@ -16,5 +17,6 @@
       "@services/*": ["services/*"],
       "@theme": ["styles/theme"]
     }
-  }
+  },
+  "target": "es2017"
 }

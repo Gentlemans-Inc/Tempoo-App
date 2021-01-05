@@ -8,11 +8,12 @@ import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 interface Props extends TextInputProps {
   refProp?: any;
   materialIcon?: string;
+  theme?: any;
 }
 
 const Input: React.FC<Props> = (props) => {
   return (
-    <Container>
+    <Container theme={props.theme}>
       {props.materialIcon ? (
         <MaterialIcons
           color={theme.colors.mediumGray}
