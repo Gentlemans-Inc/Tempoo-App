@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Component 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fff",
+        "borderColor": "#72788A",
+        "borderRadius": 8,
+        "borderWidth": 0.1,
+        "flexDirection": "row",
+        "marginBottom": 20,
+        "paddingLeft": 22.5,
+        "paddingRight": 22.5,
+        "width": "85%",
+      },
+    ]
+  }
+  theme={
+    Object {
+      "colors": Object {
+        "almostWhite": "#f1f1f1",
+        "error": "#FF453A",
+        "gray": "#72788A",
+        "lightGray": "#d1d1d6",
+        "mediumGray": "#8E8E98",
+        "nightPurple": "#5741D7",
+        "placeholder": "#D1D1D6",
+        "rainyBlue": "#4A79F3",
+        "sunnyOrange": "#FD9B3D",
+        "textDark": "#343434",
+      },
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    rejectResponderTermination={true}
+    style={
+      Array [
+        Object {
+          "color": "#343434",
+          "marginLeft": 11.5,
+          "paddingBottom": 6.5,
+          "paddingLeft": 6.5,
+          "paddingRight": 6.5,
+          "paddingTop": 6.5,
+          "width": "90%",
+        },
+      ]
+    }
+    theme={
+      Object {
+        "colors": Object {
+          "almostWhite": "#f1f1f1",
+          "error": "#FF453A",
+          "gray": "#72788A",
+          "lightGray": "#d1d1d6",
+          "mediumGray": "#8E8E98",
+          "nightPurple": "#5741D7",
+          "placeholder": "#D1D1D6",
+          "rainyBlue": "#4A79F3",
+          "sunnyOrange": "#FD9B3D",
+          "textDark": "#343434",
+        },
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+</View>
+`;

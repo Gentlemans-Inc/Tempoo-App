@@ -8,11 +8,11 @@
     "ios": "react-native run-ios",
     "pod": "cd ios; pod install; cd ..",
     "start": "react-native start",
-    "test": "jest",
+    "test": "jest --coverage",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
     "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx ./src --fix",
     "typescript": "tsc --noEmit",
-    "ci": "yarn lint && yarn typescript"
+    "ci": "yarn lint && yarn typescript && yarn test"
   },
   "dependencies": {
     "@react-native-community/geolocation": "^2.0.2",
@@ -48,7 +48,9 @@
     "babel-jest": "^26.6.3",
     "eslint": "^7.14.0",
     "jest": "^26.6.3",
+    "jest-styled-components": "^7.0.3",
     "metro-react-native-babel-preset": "^0.64.0",
+    "react-addons-test-utils": "^15.6.2",
     "react-native-typescript-transformer": "^1.2.13",
     "react-test-renderer": "16.11.0",
     "ts-jest": "^26.4.4",
@@ -65,11 +67,19 @@
       "^.+\\.(js)$": "<rootDir>/node_modules/babel-jest",
       "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!native-base)/"
+    ],
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "testPathIgnorePatterns": [
       "\\.snap$",
       "<rootDir>/node_modules/"
     ],
-    "cacheDirectory": ".jest/cache"
+    "cacheDirectory": ".jest/cache",
+    "globals": {
+      "ts-jest": {
+        "babelConfig": true
+      }
+    }
   }
 }
