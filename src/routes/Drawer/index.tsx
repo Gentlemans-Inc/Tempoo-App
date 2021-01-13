@@ -1,6 +1,6 @@
 import React from 'react';
 import {DrawerContent} from './DrawerContent';
-import {AddLocation, Future, Home, Settings} from '../../pages';
+import {AddLocation, Future, Home, Settings} from '@pages';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 

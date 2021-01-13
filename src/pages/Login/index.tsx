@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react';
-import theme from '../../styles/theme';
+import theme from '@theme';
 import {useNavigation} from '@react-navigation/native';
-import {Button, ContainerAuth, Input} from '../../components';
+import {Button, ContainerAuth, Input} from '@components';
 import {Footer, ForgotPassword, ForgotPasswordLabel, Message} from './styles';
 
 const Login: React.FC = () => {

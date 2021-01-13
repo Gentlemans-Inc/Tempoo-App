@@ -1,9 +1,9 @@
 import React from 'react';
-import theme from '../../styles/theme';
+import theme from '@theme';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {DrawerActions, useNavigation} from '@react-navigation/native';
 import {StatusBar} from 'react-native';
 import {Container, DrawerToggle} from './styles';
+import {DrawerActions, useNavigation} from '@react-navigation/native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const Home: React.FC = () => {

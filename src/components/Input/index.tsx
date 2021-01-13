@@ -1,8 +1,8 @@
 import React from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import theme from '../../styles/theme';
-import {Container, TextInput} from './styles';
+import theme from '@theme';
 import {TextInputProps} from 'react-native';
+import {Container, TextInput} from './styles';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 interface Props extends TextInputProps {

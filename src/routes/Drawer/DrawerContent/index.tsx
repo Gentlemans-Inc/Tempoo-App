@@ -1,5 +1,5 @@
 import React from 'react';
-import theme from '../../../styles/theme';
+import theme from '@theme';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
