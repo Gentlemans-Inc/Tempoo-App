@@ -1,15 +1,15 @@
 import React from 'react';
 import {DrawerContent} from './DrawerContent';
-import {AddLocation, Future, Home, Settings} from '../../pages';
+import {AddLocation, Future, Home, Settings} from '@pages';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 const Drawer = createDrawerNavigator();
 const DrawerStyle = {
-  maxWidth: 420,
-  width: wp(50),
+  maxWidth: 520,
+  width: wp(60),
 };
-function DrawerStack() {
+const DrawerStack: React.FC = () => {
   return (
     <Drawer.Navigator
       drawerContentOptions={{activeTintColor: 'red'}}
@@ -17,9 +17,10 @@ function DrawerStack() {
       drawerContent={(props) => <DrawerContent {...props} />}
       drawerStyle={DrawerStyle}
       drawerPosition="right"
-      drawerType="front"
+      drawerType="slide"
       edgeWidth={60}
       initialRouteName="Home"
+      overlayColor="0"
       screenOptions={{headerShown: false}}>
       <Drawer.Screen
         name="AddLocation"
@@ -43,6 +44,6 @@ function DrawerStack() {
       />
     </Drawer.Navigator>
   );
-}
+};
 
 export default DrawerStack;

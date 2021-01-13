@@ -1,11 +1,11 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {Login, ForgotPassword, Register} from '../../pages';
+import {Login, ForgotPassword, Register} from '@pages';
 
 const Stack = createStackNavigator();
 
-function AuthStack() {
+const AuthStack: React.FC = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="Login" component={Login} />
@@ -13,6 +13,6 @@ function AuthStack() {
       <Stack.Screen name="Register" component={Register} />
     </Stack.Navigator>
   );
-}
+};
 
 export {AuthStack};

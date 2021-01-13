@@ -16,7 +16,7 @@ import {
   DismissKeyboard,
   Logo,
 } from './styles';
-import theme from '../../styles/theme';
+import theme from '@theme';
 
 interface Props {
   canGoBack?: boolean;

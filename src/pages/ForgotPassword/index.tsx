@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import theme from '../../styles/theme';
+import theme from '@theme';
 import {buttonStyle, Message} from './styles';
-import {Button, ContainerAuth, Input} from '../../components';
+import {Button, ContainerAuth, Input} from '@components';
 
 const ForgotPassword: React.FC = () => {
   const [email, setEmail] = useState('');

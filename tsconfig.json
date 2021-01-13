@@ -2,7 +2,8 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "jsx": "react-native",
-    "lib": ["dom", "esnext"],
+    "lib": ["es2017"],
+    "module": "ESNext",
     "moduleResolution": "node",
     "noEmit": true,
     "esModuleInterop": true,
@@ -10,11 +11,15 @@
     "resolveJsonModule": true,
     "baseUrl": "./src",
     "paths": {
-      "@components": ["components"],
-      "@models/*": ["models/*"],
-      "@pages": ["pages"],
-      "@services/*": ["services/*"],
-      "@theme": ["styles/theme"]
+      "@components": ["./components"],
+      "@ducks/*": ["./store/ducks/*"],
+      "@hooks": ["./hooks"],
+      "@models/*": ["./models/*"],
+      "@pages": ["./pages"],
+      "@services/*": ["./services/*"],
+      "@store": ["./store"],
+      "@theme": ["./styles/theme"]
     }
-  }
+  },
+  "target": "es2017"
 }

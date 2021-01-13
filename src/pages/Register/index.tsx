@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react';
-import theme from '../../styles/theme';
+import theme from '@theme';
 import {buttonStyle} from './styles';
-import {Button, ContainerAuth, Input} from '../../components';
+import {Button, ContainerAuth, Input} from '@components';
 
 const Register: React.FC = () => {
   const [email, setEmail] = useState('');

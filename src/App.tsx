@@ -1,12 +1,13 @@
 import React from 'react';
 import Routes from './routes';
-import FlashMessage from 'react-native-flash-message';
+import theme from '@theme';
+import {ThemeProvider} from 'styled-components';
 
-const App = () => {
+const App: React.FC = () => {
   return (
-    <FlashMessage position="top">
+    <ThemeProvider theme={theme}>
       <Routes />
-    </FlashMessage>
+    </ThemeProvider>
   );
 };
 
