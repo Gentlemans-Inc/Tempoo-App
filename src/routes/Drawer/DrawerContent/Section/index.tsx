@@ -1,6 +1,6 @@
 import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import theme from '../../../../styles/theme';
+import theme from '@theme';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {Container, City, State, TextSection} from './styles';
 
