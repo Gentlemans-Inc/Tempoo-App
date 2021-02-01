@@ -12,7 +12,7 @@ export const ForgotPassword = styled.TouchableOpacity`
 `;
 
 export const ForgotPasswordLabel = styled.Text`
-  color: ${(props) => props.theme.colors.nightPurple};
+  color: ${(props) => props.theme.colors.primary};
   font-size: ${hp(1.9)}px;
   font-weight: bold;
 `;
