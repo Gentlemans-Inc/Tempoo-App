@@ -41,7 +41,7 @@ const ContainerAuth: React.FC<Props> = ({canGoBack, children}) => {
             {canGoBack ? (
               <BackButton onPress={onPressBack}>
                 <MaterialIcons
-                  color={theme.colors.nightPurple}
+                  color={theme.colors.primary}
                   name="keyboard-arrow-left"
                   size={hp(6)}
                 />

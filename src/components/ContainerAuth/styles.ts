@@ -36,7 +36,7 @@ export const Container = styled.SafeAreaView`
 export const DismissKeyboard = styled.TouchableWithoutFeedback``;
 
 export const Logo = styled.Text`
-  color: ${(props) => props.theme.colors.nightPurple};
+  color: ${(props) => props.theme.colors.primary};
   font-family: 'Babydoo';
   font-size: ${hp(8)}px;
   margin-bottom: ${hp(5)}px;

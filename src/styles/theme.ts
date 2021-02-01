@@ -5,10 +5,8 @@ const theme = {
     lightGray: '#d1d1d6',
     mediumGray: '#8E8E98',
     gray: '#72788A',
-    nightPurple: '#5741D7',
     placeholder: '#D1D1D6',
-    rainyBlue: '#4A79F3',
-    sunnyOrange: '#FD9B3D',
+    primary: '#65AFEC',
     textDark: '#343434',
   },
 };

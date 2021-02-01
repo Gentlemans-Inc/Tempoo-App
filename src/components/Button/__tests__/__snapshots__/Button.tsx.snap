@@ -14,12 +14,11 @@ exports[`Button component 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "#5741D7",
-      "borderRadius": 8,
+      "backgroundColor": "#65AFEC",
+      "borderRadius": 1000,
       "opacity": 1,
-      "paddingBottom": 13.5,
-      "paddingTop": 13.5,
-      "width": "85%",
+      "paddingVertical": 21.5,
+      "width": "92%",
     }
   }
 >
