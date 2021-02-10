@@ -1,9 +1,12 @@
 import React, {useRef, useState} from 'react';
 import theme from '@theme';
+import Toast from 'react-native-toast-message';
+import {ActivityIndicator} from 'react-native';
 import {buttonStyle} from './styles';
 import {RegisterParams} from '@models/User';
 import {Button, ContainerAuth, Input} from '@components';
 import {AuthService} from '@services/auth';
+import {ValidateAuthFields} from '@validation';
 
 const Register: React.FC = () => {
   const [registerParams, setRegisterParams] = useState<RegisterParams>({
@@ -12,6 +15,7 @@ const Register: React.FC = () => {
     password: '',
   });
   const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [load, setLoad] = useState(false);
   const refEmail = useRef(null);
   const refPassword = useRef(null);
   const refPasswordConfirm = useRef(null);
@@ -45,21 +49,48 @@ const Register: React.FC = () => {
   };
 
   const onPressButton = async () => {
-    if (registerParams.password === passwordConfirm) {
-      const res = await AuthService.registerUser(registerParams);
-      if (res.status >= 200 && res.status < 300) {
-        console.log(res.data);
-      } else {
-        console.log(res.status);
-      }
+    setLoad(true);
+    if (
+      ValidateAuthFields.validateRegisterParams(registerParams, passwordConfirm)
+    ) {
+      AuthService.registerUser(registerParams)
+        .then(({data}) => {
+          console.log(data);
+          Toast.show({
+            type: 'success',
+            position: 'top',
+            text1: 'Sucesso amigão!',
+            visibilityTime: 4000,
+            autoHide: true,
+            topOffset: 30,
+            bottomOffset: 40,
+          });
+        })
+        .catch(({data}) => {
+          Toast.show({
+            type: 'error',
+            position: 'top',
+            text1: data.message,
+            visibilityTime: 4000,
+            autoHide: true,
+            topOffset: 30,
+            bottomOffset: 40,
+          });
+        });
     }
+    setLoad(false);
   };
 
   return (
     <ContainerAuth canGoBack={true}>
+      <ActivityIndicator
+        animating={load}
+        color={theme.colors.primary}
+        size="small"
+      />
       <Input
         autoCapitalize="words"
-        autoCompleteType="email"
+        autoCompleteType="name"
         keyboardType="default"
         materialIcon="person"
         onChangeText={onChangeName}
