@@ -1,20 +1,22 @@
 import React, {useContext, useRef, useState} from 'react';
 import theme from '@theme';
+import Toast from 'react-native-toast-message';
 import {useNavigation} from '@react-navigation/native';
 import {AuthService} from '@services/auth';
 import {AuthParams} from '@models/User';
 import {UserContext} from '@models/UserContext';
 import {Button, ContainerAuth, Input} from '@components';
 import {Footer, ForgotPassword, ForgotPasswordLabel, Message} from './styles';
+import {ValidateAuthFields} from '@validation';
 
 const Login: React.FC = () => {
   const navigation = useNavigation();
+  const refPassword = useRef(null);
   const {setUser} = useContext(UserContext);
   const [authParams, setAuthParams] = useState<AuthParams>({
     email: '',
     password: '',
   });
-  const refPassword = useRef(null);
 
   const onChangeEmail = (text: string) => {
     setAuthParams({...authParams, email: text});
@@ -25,9 +27,22 @@ const Login: React.FC = () => {
   };
 
   const onPressButton = async () => {
-    const res = await AuthService.login(authParams);
-    if (res.status >= 200 && res.status < 300) {
-      setUser({isSigned: true, jwt: res.data.data});
+    if (ValidateAuthFields.validateAuthParams(authParams)) {
+      AuthService.login(authParams)
+        .then(({data}) => {
+          setUser({isSigned: true, jwt: data.data});
+        })
+        .catch(() => {
+          Toast.show({
+            type: 'error',
+            position: 'top',
+            text1: 'Usuário ou senha inválidos 😞',
+            visibilityTime: 4000,
+            autoHide: true,
+            topOffset: 30,
+            bottomOffset: 40,
+          });
+        });
     }
   };
 

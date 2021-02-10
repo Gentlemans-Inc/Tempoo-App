@@ -1,5 +1,6 @@
 import Axios from 'axios';
-const UNAUTHORIZED = 401;
+import Toast from 'react-native-toast-message';
+// const UNAUTHORIZED = 401;
 const INTERNAL_SERVER_ERROR = 500;
 
 export interface Response {
@@ -28,12 +29,16 @@ axios.interceptors.response.use(
   async (err) => {
     const {status} = err.response;
 
-    if (status === UNAUTHORIZED) {
-      // Toast
-    }
-
     if (status === INTERNAL_SERVER_ERROR) {
-      // Toast
+      Toast.show({
+        type: 'error',
+        position: 'top',
+        text1: 'Parece que houve um problema 😞',
+        visibilityTime: 4000,
+        autoHide: true,
+        topOffset: 30,
+        bottomOffset: 40,
+      });
     }
 
     return Promise.reject(err.response);
