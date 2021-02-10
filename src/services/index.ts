@@ -1,5 +1,6 @@
 import Axios from 'axios';
 import Toast from 'react-native-toast-message';
+import {API_URL} from '@env';
 // const UNAUTHORIZED = 401;
 const INTERNAL_SERVER_ERROR = 500;
 
@@ -8,7 +9,7 @@ export interface Response {
 }
 
 const axios = Axios.create({
-  baseURL: 'https://tempoo-api-x5t5f.ondigitalocean.app/tempoo-api/api/v1',
+  baseURL: API_URL,
   timeout: 10000,
 });
 
