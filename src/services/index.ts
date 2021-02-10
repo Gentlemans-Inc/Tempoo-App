@@ -7,7 +7,7 @@ export interface Response {
 }
 
 const axios = Axios.create({
-  baseURL: 'https://tempoo-api-8usdj.ondigitalocean.app/tempoo-api/api/v1',
+  baseURL: 'https://tempoo-api-x5t5f.ondigitalocean.app/tempoo-api/api/v1',
   timeout: 10000,
 });
 
