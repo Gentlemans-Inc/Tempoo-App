@@ -9,7 +9,7 @@ function Routes() {
 
   return (
     <NavigationContainer>
-      {user.isSigned ? <AuthStack /> : <InsideApp />}
+      {user.isSigned ? <InsideApp /> : <AuthStack />}
     </NavigationContainer>
   );
 }

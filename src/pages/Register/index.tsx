@@ -1,30 +1,34 @@
 import React, {useRef, useState} from 'react';
 import theme from '@theme';
 import {buttonStyle} from './styles';
+import {RegisterParams} from '@models/User';
 import {Button, ContainerAuth, Input} from '@components';
+import {AuthService} from '@services/auth';
 
 const Register: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
+  const [registerParams, setRegisterParams] = useState<RegisterParams>({
+    name: '',
+    email: '',
+    password: '',
+  });
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const refEmail = useRef(null);
   const refPassword = useRef(null);
   const refPasswordConfirm = useRef(null);
 
-  const onChangeName = (text) => {
-    setName(text);
+  const onChangeName = (text: string) => {
+    setRegisterParams({...registerParams, name: text});
   };
 
-  const onChangeEmail = (text) => {
-    setEmail(text);
+  const onChangeEmail = (text: string) => {
+    setRegisterParams({...registerParams, email: text});
   };
 
-  const onChangePassword = (text) => {
-    setPassword(text);
+  const onChangePassword = (text: string) => {
+    setRegisterParams({...registerParams, password: text});
   };
 
-  const onChangePasswordConfirm = (text) => {
+  const onChangePasswordConfirm = (text: string) => {
     setPasswordConfirm(text);
   };
 
@@ -40,7 +44,16 @@ const Register: React.FC = () => {
     refPasswordConfirm.current.focus();
   };
 
-  const onPressButton = () => {};
+  const onPressButton = async () => {
+    if (registerParams.password === passwordConfirm) {
+      const res = await AuthService.registerUser(registerParams);
+      if (res.status >= 200 && res.status < 300) {
+        console.log(res.data);
+      } else {
+        console.log(res.status);
+      }
+    }
+  };
 
   return (
     <ContainerAuth canGoBack={true}>
@@ -55,7 +68,7 @@ const Register: React.FC = () => {
         placeholderTextColor={theme.colors.placeholder}
         returnKeyType="next"
         textContentType="name"
-        value={name}
+        value={registerParams.name}
       />
       <Input
         autoCapitalize="none"
@@ -69,7 +82,7 @@ const Register: React.FC = () => {
         placeholderTextColor={theme.colors.placeholder}
         returnKeyType="next"
         textContentType="emailAddress"
-        value={email}
+        value={registerParams.email}
       />
       <Input
         onChangeText={onChangePassword}
@@ -81,7 +94,7 @@ const Register: React.FC = () => {
         returnKeyType="next"
         secureTextEntry={true}
         textContentType="password"
-        value={password}
+        value={registerParams.password}
       />
       <Input
         onChangeText={onChangePasswordConfirm}

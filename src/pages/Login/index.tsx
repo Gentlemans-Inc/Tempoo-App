@@ -1,24 +1,35 @@
-import React, {useRef, useState} from 'react';
+import React, {useContext, useRef, useState} from 'react';
 import theme from '@theme';
 import {useNavigation} from '@react-navigation/native';
+import {AuthService} from '@services/auth';
+import {AuthParams} from '@models/User';
+import {UserContext} from '@models/UserContext';
 import {Button, ContainerAuth, Input} from '@components';
 import {Footer, ForgotPassword, ForgotPasswordLabel, Message} from './styles';
 
 const Login: React.FC = () => {
   const navigation = useNavigation();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const {setUser} = useContext(UserContext);
+  const [authParams, setAuthParams] = useState<AuthParams>({
+    email: '',
+    password: '',
+  });
   const refPassword = useRef(null);
 
   const onChangeEmail = (text: string) => {
-    setEmail(text);
+    setAuthParams({...authParams, email: text});
   };
 
   const onChangePassword = (text: string) => {
-    setPassword(text);
+    setAuthParams({...authParams, password: text});
   };
 
-  const onPressButton = () => {};
+  const onPressButton = async () => {
+    const res = await AuthService.login(authParams);
+    if (res.status >= 200 && res.status < 300) {
+      setUser({isSigned: true, jwt: res.data.data});
+    }
+  };
 
   const onPressFooter = () => {
     navigation.navigate('Register');
@@ -45,7 +56,7 @@ const Login: React.FC = () => {
         placeholderTextColor={theme.colors.placeholder}
         returnKeyType="next"
         textContentType="emailAddress"
-        value={email}
+        value={authParams.email}
       />
       <Input
         onChangeText={onChangePassword}
@@ -57,7 +68,7 @@ const Login: React.FC = () => {
         returnKeyType="done"
         secureTextEntry={true}
         textContentType="password"
-        value={password}
+        value={authParams.password}
       />
       <ForgotPassword onPress={onPressForgot}>
         <ForgotPasswordLabel>Forgot Password?</ForgotPasswordLabel>
