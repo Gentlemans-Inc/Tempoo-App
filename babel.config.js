@@ -25,6 +25,7 @@ module.exports = {
           '@pages': './src/pages',
           '@services': './src/services',
           '@store': './src/store',
+          '@validation': './src/validation',
           '@theme': './src/styles/theme',
         },
       },

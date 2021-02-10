@@ -19,6 +19,7 @@
       "@pages": ["./pages"],
       "@services/*": ["./services/*"],
       "@store": ["./store"],
+      "@validation": ["./validation"],
       "@theme": ["./styles/theme"]
     }
   },
