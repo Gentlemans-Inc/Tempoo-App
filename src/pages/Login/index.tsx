@@ -8,6 +8,7 @@ import {UserContext} from '@models/UserContext';
 import {Button, ContainerAuth, Input} from '@components';
 import {Footer, ForgotPassword, ForgotPasswordLabel, Message} from './styles';
 import {ValidateAuthFields} from '@validation';
+import {setSecureValue} from '@store';
 
 const Login: React.FC = () => {
   const navigation = useNavigation();
@@ -30,7 +31,8 @@ const Login: React.FC = () => {
     if (ValidateAuthFields.validateAuthParams(authParams)) {
       AuthService.login(authParams)
         .then(({data}) => {
-          setUser({isSigned: true, jwt: data.data});
+          setSecureValue('jwt', data.data);
+          setUser({isSigned: true});
         })
         .catch(() => {
           Toast.show({
