@@ -8,7 +8,6 @@ import {UserContext, UserContextInterface} from '@models/UserContext';
 const App: React.FC = () => {
   const [user, setUser] = useState<UserContextInterface>({
     isSigned: false,
-    jwt: '',
   });
 
   return (
