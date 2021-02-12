@@ -1,6 +1,7 @@
 import Axios from 'axios';
 import Toast from 'react-native-toast-message';
 import {API_URL} from '@env';
+import {getSecureValue} from '@store';
 // const UNAUTHORIZED = 401;
 const INTERNAL_SERVER_ERROR = 500;
 
@@ -13,10 +14,10 @@ const axios = Axios.create({
   timeout: 10000,
 });
 
-axios.interceptors.request.use((config) => {
+axios.interceptors.request.use(async (config) => {
   const headers = {
     ...config.headers,
-    'access-token': 'some token',
+    Authorization: `Bearer ${await getSecureValue('jwt')}`,
   };
 
   return {
