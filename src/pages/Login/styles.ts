@@ -18,6 +18,6 @@ export const ForgotPasswordLabel = styled.Text`
 `;
 
 export const Message = styled.Text`
-  color: ${(props) => props.theme.colors.textDark};
+  color: ${(props) => props.theme.colors.text};
   font-size: ${hp(1.9)}px;
 `;

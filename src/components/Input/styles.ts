@@ -18,7 +18,7 @@ export const Container = styled.View`
 `;
 
 export const TextInput = styled.TextInput`
-  color: ${(props) => props.theme.colors.textDark};
+  color: ${(props) => props.theme.colors.text};
   margin-left: ${wp(1.5)}px;
   padding: ${hp(0.5)}px;
   width: 90%;

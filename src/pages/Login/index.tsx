@@ -4,7 +4,7 @@ import Toast from 'react-native-toast-message';
 import {useNavigation} from '@react-navigation/native';
 import {AuthService} from '@services/auth';
 import {AuthParams} from '@models/User';
-import {UserContext} from '@models/UserContext';
+import {AppContext} from '@models/AppContext';
 import {Button, ContainerAuth, Input} from '@components';
 import {Footer, ForgotPassword, ForgotPasswordLabel, Message} from './styles';
 import {ValidateAuthFields} from '@validation';
@@ -13,7 +13,7 @@ import {setSecureValue} from '@store';
 const Login: React.FC = () => {
   const navigation = useNavigation();
   const refPassword = useRef(null);
-  const {setUser} = useContext(UserContext);
+  const {setUser} = useContext(AppContext);
   const [authParams, setAuthParams] = useState<AuthParams>({
     email: '',
     password: '',
