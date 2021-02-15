@@ -9,7 +9,7 @@ interface RowProps {
 }
 
 export const Card = styled.View`
-  background-color: #f1f1f1;
+  background-color: ${(props) => props.theme.colors.topBackground};
   border-radius: 12px;
   margin-bottom: ${hp(5)}px;
   margin-top: ${hp(15)}px;
@@ -20,7 +20,7 @@ export const Card = styled.View`
 
 export const Container = styled.View`
   align-items: center;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.colors.background};
   height: 100%;
   width: 100%;
 `;
@@ -35,7 +35,7 @@ export const Header = styled.View`
 `;
 
 export const Label = styled.Text`
-  color: ${(props) => props.theme.colors.textDark};
+  color: ${(props) => props.theme.colors.text};
   font-size: ${hp(3)}px;
   text-align: right;
 `;
@@ -69,6 +69,16 @@ export const Row = styled.View<RowProps>`
   justify-content: space-between;
 `;
 
+export const SwitchContainer = styled.View`
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+export const Switcher = styled.TouchableOpacity`
+  margin-left: ${wp(2)}px;
+`;
+
 export const Temperature = styled.Text`
   align-self: center;
   color: ${(props) => props.theme.colors.primary};
@@ -77,13 +87,13 @@ export const Temperature = styled.Text`
 `;
 
 export const Title = styled.Text`
-  color: ${(props) => props.theme.colors.textDark};
+  color: ${(props) => props.theme.colors.text};
   font-size: ${hp(3)}px;
   font-weight: bold;
 `;
 
 export const Value = styled.Text`
-  color: ${(props) => props.theme.colors.textDark};
+  color: ${(props) => props.theme.colors.text};
   font-size: ${hp(3)}px;
   font-weight: bold;
 `;

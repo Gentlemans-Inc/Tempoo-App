@@ -16,7 +16,7 @@ import {
   DismissKeyboard,
   Logo,
 } from './styles';
-import theme from '@theme';
+import {lightTheme} from '@theme';
 
 interface Props {
   canGoBack?: boolean;
@@ -41,7 +41,7 @@ const ContainerAuth: React.FC<Props> = ({canGoBack, children}) => {
             {canGoBack ? (
               <BackButton onPress={onPressBack}>
                 <MaterialIcons
-                  color={theme.colors.primary}
+                  color={lightTheme.colors.primary}
                   name="keyboard-arrow-left"
                   size={hp(6)}
                 />

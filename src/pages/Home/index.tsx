@@ -1,10 +1,16 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {StatusBar} from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Button} from '@components';
+import {useMount} from '@hooks';
+import {StatusBar} from 'react-native';
+import {AppContext, AppContextInterface} from '@models/AppContext';
+import {CurrentWeather} from '@models/Weather';
+import {WeatherService} from '@services/weather';
+import {GeolocationService} from '@services/geolocation';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {darkTheme, lightTheme} from '@theme';
 import {
   Card,
   Container,
@@ -14,16 +20,16 @@ import {
   Label,
   LabelContainer,
   Row,
+  SwitchContainer,
+  Switcher,
   Temperature,
   Title,
   Value,
 } from './styles';
-import {CurrentWeather} from '@models/Weather';
-import {useMount} from '@hooks';
-import {WeatherService} from '@services/weather';
-import {GeolocationService} from '@services/geolocation';
 
 const Home: React.FC = () => {
+  const {context, setContext} = useContext(AppContext);
+  const [scheme, setScheme] = useState<'dark' | 'light'>(context.colorScheme);
   const [currentWeather, setCurrentWeather] = useState<CurrentWeather>({
     currentTemperature: 0,
     description: '',
@@ -34,6 +40,7 @@ const Home: React.FC = () => {
     windSpeed: 0,
     status: '',
   });
+
   useMount(() => {
     GeolocationService.requestGeolocation()
       .then(({data}) => {
@@ -60,12 +67,47 @@ const Home: React.FC = () => {
       });
   });
 
+  const onPressSwitch = () => {
+    setScheme(scheme === 'dark' ? 'light' : 'dark');
+    toggleTheme();
+  };
+
+  const toggleTheme = () => {
+    setContext({
+      ...context,
+      colorScheme: context.colorScheme === 'dark' ? 'light' : 'dark',
+      theme: context.colorScheme === 'dark' ? lightTheme : darkTheme,
+    });
+  };
+
   return (
     <Container>
-      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+      <StatusBar
+        barStyle={
+          context.colorScheme === 'dark' ? 'light-content' : 'dark-content'
+        }
+        backgroundColor={context.theme.colors.background}
+      />
       <Header>
         <Title>Home</Title>
-        <MaterialIcons color="#000" name="notifications-none" size={hp(3.8)} />
+        <SwitchContainer>
+          <Feather
+            color={context.colorScheme === 'dark' ? '#FFF' : '#000'}
+            name={context.colorScheme === 'dark' ? 'moon' : 'sun'}
+            size={hp(3.5)}
+          />
+          <Switcher onPress={onPressSwitch}>
+            <MaterialCommunityIcons
+              color={
+                context.colorScheme === 'light'
+                  ? context.theme.colors.primary
+                  : '#fff'
+              }
+              name={scheme === 'light' ? 'toggle-switch' : 'toggle-switch-off'}
+              size={hp(5.5)}
+            />
+          </Switcher>
+        </SwitchContainer>
       </Header>
       <Card>
         <ImageContainer>
@@ -76,14 +118,22 @@ const Home: React.FC = () => {
         </Temperature>
         <Row>
           <LabelContainer>
-            <Fontisto color="#000" name="wind" size={hp(3)} />
+            <Fontisto
+              color={context.colorScheme === 'light' ? '#000' : '#fff'}
+              name="wind"
+              size={hp(3)}
+            />
             <Label>Wind:</Label>
           </LabelContainer>
           <Value>{currentWeather.windSpeed.toFixed(1)}km/h</Value>
         </Row>
         <Row>
           <LabelContainer>
-            <Feather color="#000" name="droplet" size={hp(3.1)} />
+            <Feather
+              color={context.colorScheme === 'light' ? '#000' : '#fff'}
+              name="droplet"
+              size={hp(3.1)}
+            />
             <Label>Hum:</Label>
           </LabelContainer>
           <Value>{currentWeather.humidity}%</Value>

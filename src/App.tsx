@@ -1,22 +1,23 @@
 import React, {useState} from 'react';
 import Routes from './routes';
 import Toast from 'react-native-toast-message';
-import theme from '@theme';
-import {ThemeProvider} from 'styled-components';
-import {UserContext, UserContextInterface} from '@models/UserContext';
+import {useColorScheme} from 'react-native';
+import {AppContext, AppContextInterface} from '@models/AppContext';
+import {darkTheme, lightTheme} from '@theme';
 
 const App: React.FC = () => {
-  const [user, setUser] = useState<UserContextInterface>({
+  const colorScheme = useColorScheme();
+  const [context, setContext] = useState<AppContextInterface>({
     isSigned: false,
+    theme: colorScheme === 'light' ? lightTheme : darkTheme,
+    colorScheme: colorScheme,
   });
 
   return (
-    <ThemeProvider theme={theme}>
-      <UserContext.Provider value={{user, setUser}}>
-        <Routes />
-        <Toast ref={(ref) => Toast.setRef(ref)} />
-      </UserContext.Provider>
-    </ThemeProvider>
+    <AppContext.Provider value={{context, setContext}}>
+      <Routes />
+      <Toast ref={(ref) => Toast.setRef(ref)} />
+    </AppContext.Provider>
   );
 };
 

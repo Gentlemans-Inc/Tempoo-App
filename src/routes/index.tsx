@@ -1,16 +1,19 @@
 import React, {useContext} from 'react';
 import {InsideApp} from './InsideApp';
-import {NavigationContainer} from '@react-navigation/native';
 import {AuthStack} from './AuthStack';
-import {UserContext} from '@models/UserContext';
+import {AppContext} from '@models/AppContext';
+import {ThemeProvider} from 'styled-components';
+import {NavigationContainer} from '@react-navigation/native';
 
 function Routes() {
-  const {user} = useContext(UserContext);
+  const {context} = useContext(AppContext);
 
   return (
-    <NavigationContainer>
-      {user.isSigned ? <InsideApp /> : <AuthStack />}
-    </NavigationContainer>
+    <ThemeProvider theme={context.theme}>
+      <NavigationContainer>
+        {context.isSigned ? <InsideApp /> : <AuthStack />}
+      </NavigationContainer>
+    </ThemeProvider>
   );
 }
 
