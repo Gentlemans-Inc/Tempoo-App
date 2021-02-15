@@ -5,7 +5,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {Button} from '@components';
 import {useMount} from '@hooks';
 import {StatusBar} from 'react-native';
-import {AppContext, AppContextInterface} from '@models/AppContext';
+import {AppContext} from '@models/AppContext';
 import {CurrentWeather} from '@models/Weather';
 import {WeatherService} from '@services/weather';
 import {GeolocationService} from '@services/geolocation';
