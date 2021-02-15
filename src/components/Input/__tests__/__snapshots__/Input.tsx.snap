@@ -21,14 +21,15 @@ exports[`Input Component 1`] = `
   theme={
     Object {
       "colors": Object {
-        "almostWhite": "#f1f1f1",
+        "background": "#fff",
         "error": "#FF453A",
         "gray": "#72788A",
         "lightGray": "#d1d1d6",
         "mediumGray": "#8E8E98",
         "placeholder": "#D1D1D6",
         "primary": "#65AFEC",
-        "textDark": "#343434",
+        "text": "#343434",
+        "topBackground": "#f1f1f1",
       },
     }
   }
@@ -52,14 +53,15 @@ exports[`Input Component 1`] = `
     theme={
       Object {
         "colors": Object {
-          "almostWhite": "#f1f1f1",
+          "background": "#fff",
           "error": "#FF453A",
           "gray": "#72788A",
           "lightGray": "#d1d1d6",
           "mediumGray": "#8E8E98",
           "placeholder": "#D1D1D6",
           "primary": "#65AFEC",
-          "textDark": "#343434",
+          "text": "#343434",
+          "topBackground": "#f1f1f1",
         },
       }
     }
