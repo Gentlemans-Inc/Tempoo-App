@@ -12,7 +12,8 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
     "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx ./src --fix",
     "typescript": "tsc --noEmit",
-    "ci": "yarn lint && yarn typescript && yarn test"
+    "ci": "yarn lint && yarn typescript && yarn test",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
@@ -52,9 +53,12 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^7.14.0",
     "git-commit-msg-linter": "^3.0.0",
+    "husky": "^5.0.9",
     "jest": "^26.6.3",
     "jest-styled-components": "^7.0.3",
+    "lint-staged": "^10.5.4",
     "metro-react-native-babel-preset": "^0.64.0",
+    "pinst": "^2.1.4",
     "react-addons-test-utils": "^15.6.2",
     "react-native-typescript-transformer": "^1.2.13",
     "react-test-renderer": "16.11.0",
