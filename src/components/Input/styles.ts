@@ -6,7 +6,7 @@ import {
 
 export const Container = styled.View`
   align-items: center;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.colors.background};
   border-color: ${(props) => props.theme.colors.gray};
   border-radius: 8px;
   border-width: 0.1px;

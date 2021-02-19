@@ -129,7 +129,7 @@ const Register: React.FC = () => {
       />
       <Input
         onChangeText={onChangePasswordConfirm}
-        placeholder="Password"
+        placeholder="Confirm Password"
         placeholderTextColor={theme.colors.placeholder}
         materialIcon="vpn-key"
         onSubmitEditing={onPressButton}

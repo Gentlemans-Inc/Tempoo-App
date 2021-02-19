@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {useNavigation} from '@react-navigation/native';
+import {AppContext} from '@models/AppContext';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {
   Keyboard,
@@ -23,6 +24,7 @@ interface Props {
 }
 
 const ContainerAuth: React.FC<Props> = ({canGoBack, children}) => {
+  const {context} = useContext(AppContext);
   const navigation = useNavigation();
 
   const onPressBack = () => {
@@ -35,11 +37,21 @@ const ContainerAuth: React.FC<Props> = ({canGoBack, children}) => {
         behavior={Platform.OS === 'android' ? 'height' : 'padding'}
         keyboardVerticalOffset={0}
         enabled={Platform.OS === 'ios' ? true : false}>
-        <Background source={require('../../assets/images/background-auth.png')}>
-          <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        <Background>
+          <StatusBar
+            barStyle={
+              context.colorScheme === 'dark' ? 'light-content' : 'dark-content'
+            }
+            backgroundColor={context.theme.colors.background}
+          />
           <Container>
             {canGoBack ? (
-              <BackButton onPress={onPressBack}>
+              <BackButton
+                accessible={true}
+                accessibilityLabel="Go back"
+                accessibilityHint="Navigates to the previous screen"
+                accessibilityRole="button"
+                onPress={onPressBack}>
                 <MaterialIcons
                   color={lightTheme.colors.primary}
                   name="keyboard-arrow-left"

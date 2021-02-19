@@ -10,7 +10,8 @@ export const BackButton = styled.TouchableOpacity`
   top: ${hp(2)}px;
 `;
 
-export const Background = styled.ImageBackground`
+export const Background = styled.View`
+  background-color: ${(props) => props.theme.colors.background};
   height: 100%;
   width: 100%;
 `;
@@ -18,7 +19,7 @@ export const Background = styled.ImageBackground`
 export const Card = styled.View`
   align-items: center;
   align-self: center;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.colors.topBackground};
   border-color: ${(props) => props.theme.colors.mediumGray};
   border-radius: 12px;
   border-width: 0.2px;
