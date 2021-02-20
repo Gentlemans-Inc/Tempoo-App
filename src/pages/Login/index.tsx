@@ -27,8 +27,12 @@ const Login: React.FC = () => {
     setAuthParams({...authParams, password: text});
   };
 
+  // Handle Sign In
   const onPressButton = async () => {
-    if (ValidateAuthFields.validateAuthParams(authParams)) {
+    const validateAuthFields = ValidateAuthFields.validateAuthParams(
+      authParams,
+    );
+    if (validateAuthFields.isValid) {
       AuthService.login(authParams)
         .then(({data}) => {
           setSecureValue('jwt', data.data);
@@ -45,6 +49,16 @@ const Login: React.FC = () => {
             bottomOffset: 40,
           });
         });
+    } else {
+      Toast.show({
+        type: 'error',
+        position: 'top',
+        text1: `${validateAuthFields.message} 😞`,
+        visibilityTime: 4000,
+        autoHide: true,
+        topOffset: 30,
+        bottomOffset: 40,
+      });
     }
   };
 
