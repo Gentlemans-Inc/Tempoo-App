@@ -50,9 +50,11 @@ const Register: React.FC = () => {
 
   const onPressButton = async () => {
     setLoad(true);
-    if (
-      ValidateAuthFields.validateRegisterParams(registerParams, passwordConfirm)
-    ) {
+    const validateRegisterFields = ValidateAuthFields.validateRegisterParams(
+      registerParams,
+      passwordConfirm,
+    );
+    if (validateRegisterFields.isValid) {
       AuthService.registerUser(registerParams)
         .then(({data}) => {
           console.log(data);
@@ -77,6 +79,16 @@ const Register: React.FC = () => {
             bottomOffset: 40,
           });
         });
+    } else {
+      Toast.show({
+        type: 'error',
+        position: 'top',
+        text1: `${validateRegisterFields.message}😞`,
+        visibilityTime: 4000,
+        autoHide: true,
+        topOffset: 30,
+        bottomOffset: 40,
+      });
     }
     setLoad(false);
   };
