@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import {Input} from '../index';
-import theme from '../../../styles/theme';
+import theme from '@theme';
 import 'jest-styled-components';
 
 test('Input Component', () => {
