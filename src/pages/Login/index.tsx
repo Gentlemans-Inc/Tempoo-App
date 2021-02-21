@@ -13,7 +13,7 @@ import {setSecureValue} from '@store';
 const Login: React.FC = () => {
   const navigation = useNavigation();
   const refPassword = useRef(null);
-  const {setUser} = useContext(AppContext);
+  const {context, setContext} = useContext(AppContext);
   const [authParams, setAuthParams] = useState<AuthParams>({
     email: '',
     password: '',
@@ -36,9 +36,10 @@ const Login: React.FC = () => {
       AuthService.login(authParams)
         .then(({data}) => {
           setSecureValue('jwt', data.data);
-          setUser({isSigned: true});
+          setContext({...context, isSigned: true});
         })
-        .catch(() => {
+        .catch((data) => {
+          console.log(data);
           Toast.show({
             type: 'error',
             position: 'top',
